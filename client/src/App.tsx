@@ -30,7 +30,7 @@ const App: FunctionComponent = () => {
     const size = { width: 800, height: 500 };
     const [isChangeColor, setIsChangeColor] = useState<boolean>(false);
     const [selectedBall, setSelectedBall] = useState<Ball | null>(null);
-  
+
     return (
         <div className="app">
             <div className="canvas-wrapper" style={isChangeColor ? { filter: "blur(10px)" } : {}}>
