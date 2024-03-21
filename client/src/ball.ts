@@ -75,8 +75,8 @@ export class Ball {
         ball.velocity = ball.velocity * sin * Ball._MomentumLoss;
         ball.direction = ball.direction.subtract(toStopedNorm).normalize();
 
-        ball.updateBall(20)
-        this.updateBall(20)
+        ball.updateBall(20);
+        this.updateBall(20);
     }
 
     public bounceOffX(): void {
@@ -84,7 +84,7 @@ export class Ball {
             return;
         }
         this.direction.x = -this.direction.x;
-        this.center.x += this.direction.x * 10
+        this.center.x += this.direction.x * 10;
         this.velocity *= Ball._MomentumLoss;
     }
 
@@ -93,7 +93,7 @@ export class Ball {
             return;
         }
         this.direction.y = -this.direction.y;
-        this.center.y += this.direction.y * 10
+        this.center.y += this.direction.y * 10;
         this.velocity *= Ball._MomentumLoss;
     }
 

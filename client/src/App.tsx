@@ -1,4 +1,4 @@
-import { FunctionComponent, useRef, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import "./App.css";
 import { Canvas } from "./canvas";
 import { Ball } from "./ball";
@@ -13,6 +13,7 @@ const ColorChanger: FunctionComponent<ColorChangerProps> = ({ close, changeColor
     return (
         <div className="change-color">
             <input
+                className="change-color-input"
                 type="color"
                 value={color}
                 onChange={e => {
@@ -27,15 +28,15 @@ const ColorChanger: FunctionComponent<ColorChangerProps> = ({ close, changeColor
 
 const App: FunctionComponent = () => {
     const size = { width: 800, height: 500 };
-
     const [isChangeColor, setIsChangeColor] = useState<boolean>(false);
-    const [selectedBall, setSelectedBall]  = useState<Ball | null>(null);
+    const [selectedBall, setSelectedBall] = useState<Ball | null>(null);
+  
     return (
         <div className="app">
             <div className="canvas-wrapper" style={isChangeColor ? { filter: "blur(10px)" } : {}}>
                 <Canvas
                     props={{ width: size.width, height: size.height }}
-                    openChangeColor={(ball) => {
+                    openChangeColor={ball => {
                         setSelectedBall(ball);
                         setIsChangeColor(true);
                     }}
