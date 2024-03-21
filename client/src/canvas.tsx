@@ -7,7 +7,7 @@ interface CanvasProps {
     props: CanvasHTMLAttributes<HTMLCanvasElement>;
     openChangeColor: (ball: Ball) => void;
 }
-// CanvasHTMLAttributes<HTMLCanvasElement> & { openChangeColor: () => void }
+
 export const Canvas: FunctionComponent<CanvasProps> = ({ props, openChangeColor }) => {
     const manager = useRef(new GameManager({ height: +props.height!, width: +props.width! }));
     const canvasRef = useRef(null);
