@@ -43,7 +43,7 @@ export class GameManager {
     public getBallAtPoint(x: number, y: number): Ball | null {
         for (const ball of this.balls) {
             if (ball.isInside(x, y)) {
-                return ball
+                return ball;
             }
         }
         return null;
@@ -73,11 +73,6 @@ export class GameManager {
         this._lastUpdated = new Date();
     }
 
-    public collisions(): void {
-        this._chechBallCollisions();
-        this._chechWallCollisions();
-    }
-
     private _chechBallCollisions() {
         const epsilon = 0.001;
         for (let i = 0; i < this.balls.length; i++) {
@@ -98,17 +93,11 @@ export class GameManager {
 
     private _chechWallCollisions() {
         for (const ball of this.balls) {
-            if (
-                ball.center.x - Ball.Radius <= 0 ||
-                ball.center.x + Ball.Radius >= this._size.width
-            ) {
-                ball.bounceOffX()
+            if (ball.center.x - Ball.Radius <= 0 || ball.center.x + Ball.Radius >= this._size.width) {
+                ball.bounceOffX();
             }
-            if (
-                ball.center.y - Ball.Radius <= 0 ||
-                ball.center.y + Ball.Radius >= this._size.height
-            ) {
-                ball.bounceOffY()
+            if (ball.center.y - Ball.Radius <= 0 || ball.center.y + Ball.Radius >= this._size.height) {
+                ball.bounceOffY();
             }
         }
     }

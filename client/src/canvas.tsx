@@ -8,10 +8,10 @@ interface CanvasProps {
     openChangeColor: (ball: Ball) => void;
 }
 // CanvasHTMLAttributes<HTMLCanvasElement> & { openChangeColor: () => void }
-export const Canvas: FunctionComponent<CanvasProps> = ({props, openChangeColor}) => {
+export const Canvas: FunctionComponent<CanvasProps> = ({ props, openChangeColor }) => {
     const manager = useRef(new GameManager({ height: +props.height!, width: +props.width! }));
     const canvasRef = useRef(null);
-    
+
     useEffect(() => {
         const canvas = canvasRef.current as HTMLCanvasElement | null;
         if (!canvas) {
@@ -31,7 +31,7 @@ export const Canvas: FunctionComponent<CanvasProps> = ({props, openChangeColor})
 
         canvas.ondblclick = e => {
             const [relativeX, relativeY] = getRelative(e);
-            if (!inCanvas([relativeX, relativeY])) { 
+            if (!inCanvas([relativeX, relativeY])) {
                 return;
             }
             const ball = manager.current.getBallAtPoint(relativeX, relativeY);
@@ -85,10 +85,8 @@ export const Canvas: FunctionComponent<CanvasProps> = ({props, openChangeColor})
             manager.current.moveStop();
         });
 
-        // manager.current.updateCanvas(context);
         const interval = setInterval(() => manager.current.render(context), 10);
 
-        // const interval2 = setInterval(() => manager.current.collisions(), 10);
         // Стоп игра
         // setTimeout(() => {
         //     clearInterval(interval);
