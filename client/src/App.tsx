@@ -13,6 +13,7 @@ const ColorChanger: FunctionComponent<ColorChangerProps> = ({ close, changeColor
     return (
         <div className="change-color">
             <input
+                className="change-color-input"
                 type="color"
                 value={color}
                 onChange={e => {
